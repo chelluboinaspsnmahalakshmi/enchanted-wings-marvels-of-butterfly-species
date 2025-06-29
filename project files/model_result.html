@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Butterfly Species Result - Wings of Wonder</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+            background: linear-gradient(to right, #ffe4ec, #e0f7fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .result-box {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .species-name {
+            font-size: 24px;
+            color: #4a148c;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .confidence {
+            font-size: 18px;
+            color: #555;
+        }
+
+        img {
+            margin-top: 25px;
+            max-width: 100%;
+            border-radius: 15px;
+            border: 2px solid #ce93d8;
+        }
+
+        .back-link {
+            margin-top: 25px;
+            display: inline-block;
+            background: #7b1fa2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            background: #4a0072;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Prediction Result</h1>
+        <p class="species-name">{{ predicted_species }}</p>
+        <p class="confidence">Confidence: {{ confidence_score }}%</p>
+        <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Butterfly Image">
+        <br>
+        <a href="{{ url_for('index') }}" class="back-link">🦋 Try Another</a>
+    </div>
+</body>
+</html>
