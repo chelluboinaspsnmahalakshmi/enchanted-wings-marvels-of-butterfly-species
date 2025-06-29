@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wings of Wonder - Butterfly Classifier</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top left, #fff4f8, #e0f7fa);
+            font-family: 'Verdana', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background-decor {
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: spin 60s linear infinite;
+        }
+
+        .decor1 { top: 10%; left: 10%; }
+        .decor2 { top: 70%; left: 75%; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .form-box {
+            background: #ffffffee;
+            border-radius: 25px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 2;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #7b1fa2;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            border: 2px dashed #ce93d8;
+            padding: 12px;
+            width: 80%;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            background: #7b1fa2;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #4a0072;
+        }
+
+        .emoji {
+            font-size: 50px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-decor decor1">🦋</div>
+    <div class="background-decor decor2">🦋</div>
+
+    <div class="form-box">
+        <div class="emoji">🦋</div>
+        <h1>Wings of Wonder</h1>
+        <p>Select an image of a butterfly to identify its species</p>
+        <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required><br>
+            <input type="submit" value="Start Analysis">
+        </form>
+        <footer>&copy; 2025 Butterfly Intelligence Lab</footer>
+    </div>
+
+</body>
+</html>
